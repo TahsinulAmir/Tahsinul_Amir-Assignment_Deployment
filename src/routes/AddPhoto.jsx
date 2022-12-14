@@ -26,7 +26,7 @@ const AddPhoto = () => {
     };
 
     if (secret === "password") {
-      await fetch("http://localhost:3001/photos", (add));
+      await fetch("https://gallery-app-server.vercel.app/photos", (add));
       navigate("/photos");
     } else {
       setError("You are not authorized");

@@ -13,7 +13,7 @@ const EditPhoto = () => {
   const editPhoto = async (e) => {
     e.preventDefault();
     // TODO: answer here
-    await fetch(`http://localhost:3001/photos/${id}`, {
+    await fetch(`https://gallery-app-server.vercel.app/photos/${id}`, {
       method: 'PATCH',
       body: JSON.stringify({
         imageUrl,
@@ -35,7 +35,7 @@ const EditPhoto = () => {
     // TODO: answer here
     const dataImageUrl = async () => {
       try {
-        await fetch(`http://localhost:3001/photos/${id}`)
+        await fetch(`https://gallery-app-server.vercel.app/photos/${id}`)
           .then((response) => response.json()) // mengubah response menjadi JSON
           .then((json) => setImageUrl(json.imageUrl))
           .then((json) => setCaptions(json.captions)) // menampilkan response yang sudah dalam format JSON

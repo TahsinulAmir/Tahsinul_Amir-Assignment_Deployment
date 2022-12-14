@@ -12,7 +12,7 @@ const Photos = () => {
 
   const deletePhoto = async (id) => {
     // TODO: answer here
-    await fetch(`http://localhost:3001/photos/${id}`, {
+    await fetch(`https://gallery-app-server.vercel.app/photos/${id}`, {
       method: 'DELETE',
     })
       .then((response) => response.json())
@@ -25,7 +25,7 @@ const Photos = () => {
       setLoading(true);
       // TODO: answer here
       try {
-        await fetch(`http://localhost:3001/photos?q=${submited}&_sort=id&_order=${sort}`)
+        await fetch(`https://gallery-app-server.vercel.app/photos?q=${submited}&_sort=id&_order=${sort}`)
           .then((res) => res.json())
           .then((json) => setPhotos(json));
         setLoading(false);
@@ -41,7 +41,7 @@ const Photos = () => {
       setLoading(true);
       // TODO: answer here
       try {
-        await fetch("http://localhost:3001/photos")
+        await fetch("https://gallery-app-server.vercel.app/photos")
           .then((res) => res.json())
           .then((json) => console.log(json));
         setLoading(false);
@@ -51,47 +51,6 @@ const Photos = () => {
     };
     loadData();
   }, [])
-
-  // const deletePhoto = (id) => {
-  //   // TODO: answer here
-  // };
-
-  // useEffect(() => {
-  //   const loadData = async () => {
-  //     setLoading(true);
-  //     // TODO: answer here
-  //     try {
-  //       await fetch("http://localhost:3001/photos?" + new URLSearchParams({
-  //         q: `${submited}`,
-  //         _sort: "id",
-  //         _order: `${sort}`,
-  //       })
-  //       )
-  //         .then((response) => response.json())
-  //         .then((json) => setPhotos(json));
-  //       setLoading(false);
-  //     } catch (err) {
-  //       setError(true);
-  //     } setLoading(false);
-  //   };
-  //   loadData();
-  // }, [sort, submited]);
-
-  // useEffect(() => {
-  //   const loadData = async () => {
-  //     setLoading(true);
-  //     // TODO: answer here
-  //     try {
-  //       await fetch("http://localhost:3001/photos")
-  //         .then((response) => response.json())
-  //         .then((json) => console.log(json));
-  //       setLoading(false);
-  //     } catch (err) {
-  //       setError(true);
-  //     } setLoading(false);
-  //   };
-  //   loadData();
-  // }, []);
 
   if (error) return <h1 style={{ width: "100%", textAlign: "center", marginTop: "20px" }} >Error!</h1>;
 
